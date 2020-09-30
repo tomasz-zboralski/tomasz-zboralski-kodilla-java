@@ -1,5 +1,7 @@
 package com.kodilla;
 
 public class FirstClass {
-    System.out.println("First Class");
+    public static void main(String[] args) {
+        System.out.println("My first class");
+    }
 }
