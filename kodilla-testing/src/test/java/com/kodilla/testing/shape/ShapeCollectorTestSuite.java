@@ -121,7 +121,7 @@ public class ShapeCollectorTestSuite {
 
             //Then
             Assertions.assertTrue(result);
-            Assertions.assertEquals(0, result);
+            Assertions.assertEquals(0, aShape.getShapesCollectionQuantity());
         }
 
         @DisplayName("Check if an attempt to delete a non-existent figure will return: false.")
@@ -188,7 +188,7 @@ public class ShapeCollectorTestSuite {
 
             //Then
             Assertions.assertTrue(result);
-            Assertions.assertEquals(0, result);
+            Assertions.assertEquals(0, aShape.getShapesCollectionQuantity());
         }
 
         @DisplayName("Check if an attempt to delete a non-existent figure will return: false.")
@@ -236,7 +236,7 @@ public class ShapeCollectorTestSuite {
         aShape.addFigure(aTriangle);
 
         //When
-        String expectedResult = "Circle, Square, Triangle";
+        String expectedResult = "[Shape: Circle, Shape: Square, Shape: Triangle]";
 
         //Then
         Assertions.assertEquals(expectedResult, aShape.showFigures());

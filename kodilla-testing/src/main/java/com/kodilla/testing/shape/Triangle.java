@@ -18,4 +18,10 @@ public class Triangle implements Shape{
     public double getField() {
         return field;
     }
+
+    @Override
+    public String toString() {
+        String s = "Shape: " + getShapeName();
+        return s;
+    }
 }
