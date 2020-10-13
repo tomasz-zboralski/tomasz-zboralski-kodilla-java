@@ -24,12 +24,10 @@ public class CalculateStatistics {
         if (posts != 0 && users !=0){
             userPostsAverage = (posts * 1.0) / users;
         }
-        if (users != 0){
-            userCommentsAverage = (comments * 1.0)/ users;
-        }
+        if (users != 0) userCommentsAverage = (double)comments / users;
 
         if (posts != 0){
-            postCommentsAverage = (comments * 1.0) / posts ;
+            postCommentsAverage = (double)comments  / posts;
         }
 
     }

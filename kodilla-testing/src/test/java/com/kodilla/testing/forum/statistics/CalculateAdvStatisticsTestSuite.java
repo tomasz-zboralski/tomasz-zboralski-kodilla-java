@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class calculateAdvStatisticsTestSuite {
+public class CalculateAdvStatisticsTestSuite {
 
     private List<String> generateListOfNUsers(int usersQuantity) {
         List<String> resultList = new ArrayList<>();
@@ -34,19 +34,17 @@ public class calculateAdvStatisticsTestSuite {
     void beforeEveryTest(){
         counter ++;
         System.out.println("Test #" + counter);
+        when(statisticsMock.postsCount()).thenReturn(1000);
+        when(statisticsMock.commentsCount()).thenReturn(2000);
+        when(statisticsMock.usersNames()).thenReturn(generateListOfNUsers(2000));
 
     }
 
     @Test
     void testCalculateAdvStatistics0posts(){
         //Given
-
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
-
         when(statisticsMock.postsCount()).thenReturn(0);
-        when(statisticsMock.commentsCount()).thenReturn(2000);
-        when(statisticsMock.usersNames()).thenReturn(generateListOfNUsers(2000));
-
 
         // When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
@@ -64,20 +62,13 @@ public class calculateAdvStatisticsTestSuite {
         assertEquals(0, userPostsAverage);
         assertEquals(1.0, userCommentsAverage);
         assertEquals(0, postCommentsAverage);
-
-
     }
 
     @Test
     void testCalculateAdvStatistics1000posts(){
         //Given
-
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
-
         when(statisticsMock.postsCount()).thenReturn(1000);
-        when(statisticsMock.commentsCount()).thenReturn(2000);
-        when(statisticsMock.usersNames()).thenReturn(generateListOfNUsers(2000));
-
 
         // When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
@@ -95,20 +86,13 @@ public class calculateAdvStatisticsTestSuite {
         assertEquals(0.5, userPostsAverage);
         assertEquals(1.0, userCommentsAverage);
         assertEquals(2.0, postCommentsAverage);
-
-
     }
 
     @Test
     void testCalculateAdvStatistics0comments(){
         //Given
-
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
-
-        when(statisticsMock.postsCount()).thenReturn(1000);
         when(statisticsMock.commentsCount()).thenReturn(0);
-        when(statisticsMock.usersNames()).thenReturn(generateListOfNUsers(2000));
-
 
         // When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
@@ -126,20 +110,14 @@ public class calculateAdvStatisticsTestSuite {
         assertEquals(0.5, userPostsAverage);
         assertEquals(0, userCommentsAverage);
         assertEquals(0, postCommentsAverage);
-
-
     }
 
     @Test
     void testCalculateAdvStatisticsCommentsLessThanPosts(){
         //Given
-
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
-
         when(statisticsMock.postsCount()).thenReturn(1000);
         when(statisticsMock.commentsCount()).thenReturn(100);
-        when(statisticsMock.usersNames()).thenReturn(generateListOfNUsers(2000));
-
 
         // When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
@@ -157,20 +135,14 @@ public class calculateAdvStatisticsTestSuite {
         assertEquals(0.5, userPostsAverage);
         assertEquals(0.05, userCommentsAverage);
         assertEquals(0.1, postCommentsAverage);
-
-
     }
 
     @Test
     void testCalculateAdvStatisticsCommentsMoreThanPosts(){
         //Given
-
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
-
         when(statisticsMock.postsCount()).thenReturn(1000);
         when(statisticsMock.commentsCount()).thenReturn(2000);
-        when(statisticsMock.usersNames()).thenReturn(generateListOfNUsers(2000));
-
 
         // When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
@@ -188,20 +160,13 @@ public class calculateAdvStatisticsTestSuite {
         assertEquals(0.5, userPostsAverage);
         assertEquals(1.0, userCommentsAverage);
         assertEquals(2.0, postCommentsAverage);
-
-
     }
 
     @Test
     void testCalculateAdvStatistics0users(){
         //Given
-
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
-
-        when(statisticsMock.postsCount()).thenReturn(1000);
-        when(statisticsMock.commentsCount()).thenReturn(2000);
         when(statisticsMock.usersNames()).thenReturn(generateListOfNUsers(0));
-
 
         // When
         calculateStatistics.calculateAdvStatistics(statisticsMock);
@@ -219,18 +184,12 @@ public class calculateAdvStatisticsTestSuite {
         assertEquals(0, userPostsAverage);
         assertEquals(0, userCommentsAverage);
         assertEquals(2.0, postCommentsAverage);
-
-
     }
 
     @Test
     void testCalculateAdvStatistics100users(){
         //Given
-
         CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
-
-        when(statisticsMock.postsCount()).thenReturn(1000);
-        when(statisticsMock.commentsCount()).thenReturn(2000);
         when(statisticsMock.usersNames()).thenReturn(generateListOfNUsers(100));
 
 
@@ -250,11 +209,5 @@ public class calculateAdvStatisticsTestSuite {
         assertEquals(10, userPostsAverage);
         assertEquals(20, userCommentsAverage);
         assertEquals(2.0, postCommentsAverage);
-
-
     }
-
-
-
-
 }
