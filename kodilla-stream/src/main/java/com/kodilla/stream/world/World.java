@@ -12,10 +12,6 @@ public class World {
     }
 
     public BigDecimal getPeopleQuantity() {
-        //BigDecimal totalPeople = BigDecimal.ZERO;
-        //for (Continent continent : continents) {
-           // totalPeople = totalPeople.add(continent.getCountries())
-        //}
         return continents.stream()
                 .flatMap(continent -> continent.getCountries().stream())
                 .map(Country::getPeopleQuantity)

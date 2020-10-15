@@ -2,51 +2,44 @@ package com.kodilla.stream.world;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class WorldTestSuite {
     @Test
     void testGetPeopleQuantity() {
         //Given
-
         //Europe
-        List<Country> countriesEurope = new ArrayList<>();
+        Continent continent1 = new Continent("Europe");
         Country country1 = new Country("Germany", new BigDecimal("80457737"));
         Country country2 = new Country("France", new BigDecimal("67364357"));
         Country country3 = new Country("UK", new BigDecimal("65105256"));
 
-        countriesEurope.add(country1);
-        countriesEurope.add(country2);
-        countriesEurope.add(country3);
+        continent1.addCountry(country1);
+        continent1.addCountry(country2);
+        continent1.addCountry(country3);
 
         //Asia
-        List<Country> countriesAsia = new ArrayList<>();
+        Continent continent2 = new Continent("Asia");
         Country country4 = new Country("China", new BigDecimal("1401585247"));
         Country country5 = new Country("India", new BigDecimal("1359527235"));
         Country country6 = new Country("Indonesia", new BigDecimal("262787403"));
 
-        countriesAsia.add(country4);
-        countriesAsia.add(country5);
-        countriesAsia.add(country6);
+        continent2.addCountry(country4);
+        continent2.addCountry(country5);
+        continent2.addCountry(country6);
 
         //North America
-        List<Country> countriesNA = new ArrayList<>();
+        Continent continent3 = new Continent("North America");
         Country country7 = new Country("USA", new BigDecimal("329256465"));
         Country country8 = new Country("Canada", new BigDecimal("35881659"));
 
-        countriesNA.add(country7);
-        countriesNA.add(country8);
+        continent3.addCountry(country7);
+        continent3.addCountry(country8);
 
-
+        //World
         World theWorld = new World();
-        Continent continent1 = new Continent("Europe", countriesEurope);
-        Continent continent2 = new Continent("Asia", countriesAsia);
-        Continent continent3 = new Continent("North America", countriesNA);
 
         theWorld.addContinent(continent1);
         theWorld.addContinent(continent2);
@@ -59,5 +52,4 @@ public class WorldTestSuite {
         //Then
         Assertions.assertEquals(expectedPeopleQuantity, totalPeople);
     }
-
 }
