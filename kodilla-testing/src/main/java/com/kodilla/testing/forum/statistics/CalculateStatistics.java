@@ -10,13 +10,6 @@ public class CalculateStatistics {
     private double userCommentsAverage;
     private double postCommentsAverage;
 
-
-    private Statistics statistics;
-
-    public CalculateStatistics(Statistics statistics) {
-        this.statistics = statistics;
-    }
-
     public void calculateAdvStatistics(Statistics statistics){
         users = statistics.usersNames().size();
         posts = statistics.postsCount();

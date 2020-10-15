@@ -43,7 +43,7 @@ public class CalculateAdvStatisticsTestSuite {
     @Test
     void testCalculateAdvStatistics0posts(){
         //Given
-        CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
+        CalculateStatistics calculateStatistics = new CalculateStatistics();
         when(statisticsMock.postsCount()).thenReturn(0);
 
         // When
@@ -67,7 +67,7 @@ public class CalculateAdvStatisticsTestSuite {
     @Test
     void testCalculateAdvStatistics1000posts(){
         //Given
-        CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
+        CalculateStatistics calculateStatistics = new CalculateStatistics();
         when(statisticsMock.postsCount()).thenReturn(1000);
 
         // When
@@ -91,7 +91,7 @@ public class CalculateAdvStatisticsTestSuite {
     @Test
     void testCalculateAdvStatistics0comments(){
         //Given
-        CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
+        CalculateStatistics calculateStatistics = new CalculateStatistics();
         when(statisticsMock.commentsCount()).thenReturn(0);
 
         // When
@@ -115,7 +115,7 @@ public class CalculateAdvStatisticsTestSuite {
     @Test
     void testCalculateAdvStatisticsCommentsLessThanPosts(){
         //Given
-        CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
+        CalculateStatistics calculateStatistics = new CalculateStatistics();
         when(statisticsMock.postsCount()).thenReturn(1000);
         when(statisticsMock.commentsCount()).thenReturn(100);
 
@@ -140,7 +140,7 @@ public class CalculateAdvStatisticsTestSuite {
     @Test
     void testCalculateAdvStatisticsCommentsMoreThanPosts(){
         //Given
-        CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
+        CalculateStatistics calculateStatistics = new CalculateStatistics();
         when(statisticsMock.postsCount()).thenReturn(1000);
         when(statisticsMock.commentsCount()).thenReturn(2000);
 
@@ -165,7 +165,7 @@ public class CalculateAdvStatisticsTestSuite {
     @Test
     void testCalculateAdvStatistics0users(){
         //Given
-        CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
+        CalculateStatistics calculateStatistics = new CalculateStatistics();
         when(statisticsMock.usersNames()).thenReturn(generateListOfNUsers(0));
 
         // When
@@ -189,7 +189,7 @@ public class CalculateAdvStatisticsTestSuite {
     @Test
     void testCalculateAdvStatistics100users(){
         //Given
-        CalculateStatistics calculateStatistics = new CalculateStatistics(statisticsMock);
+        CalculateStatistics calculateStatistics = new CalculateStatistics();
         when(statisticsMock.usersNames()).thenReturn(generateListOfNUsers(100));
 
 
