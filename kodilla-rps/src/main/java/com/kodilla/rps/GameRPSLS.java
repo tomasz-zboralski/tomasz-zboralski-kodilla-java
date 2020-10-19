@@ -21,12 +21,28 @@ public class GameRPSLS implements Game{
         this.name = name;
     }
 
+    public int getWins() {
+        return wins;
+    }
+
+    public int getLosses() {
+        return losses;
+    }
+
+    public int getTies() {
+        return ties;
+    }
+
     public String getInstruction() {
         return instruction;
     }
 
     public boolean isEnd() {
         return end;
+    }
+
+    public void setEnd(boolean end) {
+        this.end = end;
     }
 
     public void isNextRound() {
@@ -37,18 +53,20 @@ public class GameRPSLS implements Game{
         if (s.equals("n")) {
             System.out.println("\nAre you sure? [y] yes");
             s = scanner.next();
-            if (s.equals("y")) {
+        }
+        if (s.equals("y")) {
                 System.out.println("\n\nLet's try again, then...\n");
                 RpsRunner.main(new String[0]);
             }
-        } else if (s.equals("x")) {
+        if (s.equals("x")) {
             System.out.println("\nAre you sure? [y] yes");
             s = scanner.next();
-            if (s.equals("y")) {
+        }
+        if (s.equals("y")) {
                 System.out.println("Exit...");
                 System.exit(0);
             }
-        } else if (s.equals("1") || s.equals("2") || s.equals("3") || s.equals("4") || s.equals("5") ){
+        if (s.equals("1") || s.equals("2") || s.equals("3") || s.equals("4") || s.equals("5") ){
             int computerMove = random.nextInt(5);
             int i = Integer.parseInt(s);
             roundWinner(computerMove, i - 1 );
@@ -68,34 +86,20 @@ public class GameRPSLS implements Game{
 
     public void roundWinner(int computerMove, int userMove){
         int result = (computerMove - userMove + 5) % 5;
-        if (result == 0) ties++;
-        if (result == 1 || result == 2) losses++;
-        if (result == 3 || result == 4) wins++;
         System.out.println("Computer: " + numberToName(computerMove) + " " + name + ": " + numberToName(userMove));
-        System.out.println("Score: " + losses + ":" + wins + " [ties: " + ties + "]\n");
-    }
-
-    public void getTheGameWinner(){
-        int result = wins - losses;
-        System.out.println("\nGAME OVER");
-        System.out.println("Score: " + losses + ":" + wins + " [ties: " + ties + "]");
-        if (result > 0) {
-            System.out.println("You're the winner!");
-        } else if (result < 0) {
-            System.out.println("You lost! :(");
-        } else {
+        if (result == 0) {
+            ties++;
             System.out.println("It's a tie!");
         }
-
-        String choice;
-        do {
-            System.out.println("\nPress: [n] New Game, [x] Exit Game");
-            choice = scanner.next();
-
-        } while ((!choice.equals("n")) && (!choice.equals("x")));
-        if (choice.equals("n")) RpsRunner.main( new String[0]);
-        if (choice.equals("x")) end = true;
-        //System.exit(0);
+        if (result == 1 || result == 2) {
+            losses++;
+            System.out.println("Computer scored!");
+        }
+        if (result == 3 || result == 4) {
+            wins++;
+            System.out.println("You scored!");
+        }
+        System.out.println("Score: " + losses + ":" + wins + " [ties: " + ties + "]\n");
     }
 }
 

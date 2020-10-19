@@ -5,21 +5,6 @@ import java.util.Scanner;
 
 public class RpsRunner {
     public static void main(String[] args) {
-//        System.out.println((0-2)%3);
-//        System.out.println((0-1 )%3);
-//        System.out.println((1-2)%3);
-//        System.out.println((1-0)%3);
-//        System.out.println((2-1)%3);
-//        System.out.println((2-0)%3);
-//        System.out.println(" ");
-//        System.out.println((0-2 +3)%3);
-//        System.out.println((0-1 +3)%3);
-//        System.out.println((1-2 +3)%3);
-//        System.out.println((1-0 +3)%3);
-//        System.out.println((2-1 +3)%3);
-//        System.out.println((2-0 +3)%3);
-//
-//        System.out.println(2%5);
 
         Scanner scanner = new Scanner(System.in);
         boolean end = false;
@@ -28,7 +13,10 @@ public class RpsRunner {
         System.out.println("Enter your name:");
         String userName = scanner.nextLine();
         System.out.println(userName + ", how many wins/losses rounds do you wish to play?");
+
+        while (!scanner.hasNextInt()) scanner.next();
         int roundsNumber = scanner.nextInt();
+
 
         String choice;
         do {
