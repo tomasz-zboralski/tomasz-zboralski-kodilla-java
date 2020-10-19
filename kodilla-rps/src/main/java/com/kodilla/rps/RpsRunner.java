@@ -24,12 +24,12 @@ public class RpsRunner {
         Scanner scanner = new Scanner(System.in);
         boolean end = false;
 
-        System.out.println("Enter name:");
+        System.out.println("Enter your name:");
         String userName = scanner.nextLine();
         System.out.println("Hello " + userName + ", how many wins/losses rounds do you wish to play?");
         int roundsNumber = scanner.nextInt();
 
-        Game theGame = new Game(userName, roundsNumber);
+        Game theGame = new GameRPSLS(userName, roundsNumber);
 
         while (!end) {
             System.out.println(theGame.getInstruction() + "\nWhat's your move? " + userName + ".");
