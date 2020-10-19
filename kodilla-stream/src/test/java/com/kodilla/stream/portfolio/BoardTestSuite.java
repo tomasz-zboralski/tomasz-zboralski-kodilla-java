@@ -94,7 +94,6 @@ class BoardTestSuite {
                 .average()
                 .getAsDouble();
 
-
         //Then
         assertEquals(10.0, averageTasks);
 
