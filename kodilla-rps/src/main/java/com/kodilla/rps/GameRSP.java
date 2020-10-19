@@ -74,9 +74,6 @@ public class GameRSP implements Game{
         } else {
             System.out.println("Try again...");
         }
-
-
-
     }
 
     public String numberToName(int i){

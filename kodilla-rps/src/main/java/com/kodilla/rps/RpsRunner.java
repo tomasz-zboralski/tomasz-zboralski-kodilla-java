@@ -1,6 +1,5 @@
 package com.kodilla.rps;
 
-//import java.util.Random;
 import java.util.Scanner;
 
 public class RpsRunner {
@@ -16,7 +15,6 @@ public class RpsRunner {
 
         while (!scanner.hasNextInt()) scanner.next();
         int roundsNumber = scanner.nextInt();
-
 
         String choice;
         do {
@@ -37,7 +35,6 @@ public class RpsRunner {
                     "And as it always has, rock crushes scissors.\n");
             theGame = new GameRPSLS(userName, roundsNumber);
         }
-
         while (!end) {
             System.out.println(theGame.getInstruction() + "\nWhat's your move? " + userName + ".");
             String s = scanner.next();

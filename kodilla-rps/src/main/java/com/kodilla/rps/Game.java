@@ -1,7 +1,6 @@
 package com.kodilla.rps;
 import java.util.Scanner;
 
-
 interface Game {
     Scanner scanner = new Scanner(System.in);
 
