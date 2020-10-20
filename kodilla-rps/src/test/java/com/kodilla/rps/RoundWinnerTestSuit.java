@@ -11,12 +11,12 @@ public class RoundWinnerTestSuit {
         GameRSP game = new GameRSP("Test", 10);
 
         //Given
-        game.roundWinner(0, 2);// (0-2); // Scissors vs Rock = Win
-        // (0-1); // Scissors vs Paper = Lost
-        // (1-2); // Paper vs Rock = Lost
-        // (1-0); // Paper vs Scissors = Win
-        // (2-1); // Rock vs Paper = Win
-        // (2-0); // Rock vs Scissors = Lost
+        game.roundWinner(0, 2);// (0-2) Scissors vs Rock = Win
+        // (0-1) Scissors vs Paper = Lost
+        // (1-2) Paper vs Rock = Lost
+        // (1-0) Paper vs Scissors = Win
+        // (2-1) Rock vs Paper = Win
+        // (2-0) Rock vs Scissors = Lost
 
         //Then
         Assertions.assertEquals(1, game.getWins());

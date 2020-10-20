@@ -54,20 +54,18 @@ public class GameRPSLS implements Game{
         if (s.equals("n")) {
             System.out.println("\nAre you sure? [y] yes");
             s = scanner.next();
-        }
-        if (s.equals("y")) {
+            if (s.equals("y")) {
                 System.out.println("\n\nLet's try again, then...\n");
                 RpsRunner.main(new String[0]);
             }
-        if (s.equals("x")) {
+        } else if (s.equals("x")) {
             System.out.println("\nAre you sure? [y] yes");
             s = scanner.next();
-        }
-        if (s.equals("y")) {
+            if (s.equals("y")) {
                 System.out.println("Exit...");
                 System.exit(0);
             }
-        if (s.equals("1") || s.equals("2") || s.equals("3") || s.equals("4") || s.equals("5") ){
+        } else if (s.equals("1") || s.equals("2") || s.equals("3") || s.equals("4") || s.equals("5") ){
             int computerMove = random.nextInt(5);
             int i = Integer.parseInt(s);
             roundWinner(computerMove, i - 1 );
