@@ -79,7 +79,7 @@ public class GameRPSLS implements Game{
         if (i == 1) return "Spock";
         if (i == 2) return "Paper";
         if (i == 3) return "Lizard";
-        if (i == 4) return "Scissor";
+        if (i == 4) return "Scissors";
         return null;
     }
 

@@ -75,7 +75,7 @@ public class GameRSP implements Game{
     }
 
     public String numberToName(int i){
-        if (i == 0) return "Scissor";
+        if (i == 0) return "Scissors";
         if (i == 1) return "Paper";
         if (i == 2) return "Rock";
         return null;
@@ -87,7 +87,7 @@ public class GameRSP implements Game{
         if (result == 0) {
             ties++;
             System.out.println("It's a tie!");
-        };
+        }
         if (result == 1) {
             wins++;
             System.out.println("You scored!");
