@@ -22,6 +22,8 @@ public class FirstChallenge {
             System.out.println(result);
         } catch (ArithmeticException arithmeticException) {
             System.out.println("You can't divide by 0");
+        } finally {
+            System.out.println("Program ended.");
         }
     }
 }
