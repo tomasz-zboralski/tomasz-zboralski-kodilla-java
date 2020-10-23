@@ -16,7 +16,7 @@ public class FlightSearch {
         if (flights.containsKey(arrival) && flights.containsKey(departure)) {
             return flights.get(arrival) && flights.get(departure);
         } else {
-            throw new RouteNotFoundException("Airport not found");
+            throw new RouteNotFoundException("No such an airport in the database.");
         }
     }
 
@@ -31,10 +31,8 @@ public class FlightSearch {
             } else {
                 System.out.println("You can't fly :(");
             }
-
-
         } catch (RouteNotFoundException e) {
-            System.out.println("No such an airport in the database. Try again");
+            System.out.println("Try again. " + e.getMessage());
         }
     }
 }

@@ -8,7 +8,7 @@ public class RoundWinnerTestSuit {
     @Test
     void testRoundWinnerRSP() {
         //When
-        GameRSP game = new GameRSP("Test", 10);
+        GameRPS game = new GameRPS("Test", 10);
 
         //Given
         game.roundWinner(0, 2);// (0-2) Scissors vs Rock = Win
