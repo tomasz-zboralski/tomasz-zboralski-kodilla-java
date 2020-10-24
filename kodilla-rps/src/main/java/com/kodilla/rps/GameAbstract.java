@@ -12,12 +12,12 @@ abstract class GameAbstract implements Game{
     int wins = 0;
     int losses = 0;
     int ties = 0;
-    final String name;
-    final int rounds;
+    final String USER_NAME;
+    final int ROUNDS;
 
     public GameAbstract(String name, int rounds) {
-        this.name = name;
-        this.rounds = rounds;
+        this.USER_NAME = name;
+        this.ROUNDS = rounds;
     }
 
     public int getWins() {
@@ -32,10 +32,6 @@ abstract class GameAbstract implements Game{
         return ties;
     }
 
-    public String getInstruction() {
-        return "[1] Scissors, [2] Paper, [3] Rock [n] New Game, [x] Exit Game";
-    }
-
     public boolean isEnd() {
         return end;
     }
@@ -45,7 +41,7 @@ abstract class GameAbstract implements Game{
     }
 
     public void isNextRound() {
-        if ( wins >= rounds || losses >= rounds ) {
+        if ( wins >= ROUNDS || losses >= ROUNDS) {
             getTheGameWinner();
         }
     }
@@ -57,6 +53,7 @@ abstract class GameAbstract implements Game{
                 s = scanner.next();
                 if (s.equals("y")) {
                     System.out.println("\n\nLet's try again, then...\n");
+                    setEnd(true);
                     RpsRunner.main(new String[0]);
                 }
                 break;
@@ -65,7 +62,8 @@ abstract class GameAbstract implements Game{
                 s = scanner.next();
                 if (s.equals("y")) {
                     System.out.println("Exit...");
-                    System.exit(0);
+                    setEnd(true);
+                    break;
                 }
                 break;
             case "1":
@@ -98,10 +96,7 @@ abstract class GameAbstract implements Game{
         do {
             System.out.println("\nPress: [n] New Game, [x] Exit Game");
             choice = scanner.next();
-
-        } while ((!choice.equals("n")) && (!choice.equals("x")));
-        if (choice.equals("n")) RpsRunner.main(new String[0]);
-        if (choice.equals("x")) setEnd(true);
+        } while (!(choice.equals("n") || choice.equals("x")));
+        userChoice(choice);
     }
 }
-

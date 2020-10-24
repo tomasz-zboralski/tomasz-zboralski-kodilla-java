@@ -5,9 +5,11 @@ import java.util.Map;
 
 public class GameRPS extends GameAbstract {
 
+    public static final String DESCRIPTION_RPS = "It's simple. Rock breaks scissors, " +
+            "scissors cuts paper, paper covers rock.";
+
     public GameRPS(String name, int rounds) {
         super(name, rounds);
-
     }
 
     public String getInstruction() {
@@ -39,18 +41,20 @@ public class GameRPS extends GameAbstract {
 
     public void roundWinner(int computerMove, int userMove){
         int result = (computerMove - userMove + 3) % 3;
-        System.out.println("Computer: " + numberToName(computerMove) + " " + name + ": " + numberToName(userMove));
-        if (result == 0) {
-            ties++;
-            System.out.println("It's a tie!");
-        }
-        if (result == 1) {
-            wins++;
-            System.out.println("You scored!");
-        }
-        if (result == 2) {
-            losses++;
-            System.out.println("Computer scored!");
+        System.out.println("Computer: " + numberToName(computerMove) + " " + USER_NAME + ": " + numberToName(userMove));
+        switch (result) {
+            case 0:
+                ties++;
+                System.out.println("It's a tie!");
+                break;
+            case 1:
+                wins++;
+                System.out.println("You scored!");
+                break;
+            case 2:
+                losses++;
+                System.out.println("Computer scored!");
+                break;
         }
         System.out.println("Score: " + losses + ":" + wins + " [ties: " + ties + "]\n");
     }

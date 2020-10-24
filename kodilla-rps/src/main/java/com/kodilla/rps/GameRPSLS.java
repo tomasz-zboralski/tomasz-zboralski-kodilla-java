@@ -5,6 +5,13 @@ import java.util.Map;
 
 public class GameRPSLS extends GameAbstract{
 
+    public static final String DESCRIPTION_RPSLS = "It's very simple. Scissors cuts paper.\n" +
+            "Paper covers rock. Rock crushes lizard.\n" +
+            "Lizard poisons Spock. Spock smashes scissors.\n" +
+            "Scissors decapitates lizard. Lizard eats paper.\n" +
+            "Paper disproves Spock. Spock vaporizes rock.\n" +
+            "And as it always has, rock crushes scissors.\n";
+
     public GameRPSLS(String name, int rounds) {
         super(name, rounds);
     }
@@ -31,7 +38,7 @@ public class GameRPSLS extends GameAbstract{
 
     public void roundWinner(int computerMove, int userMove){
         int result = (computerMove - userMove + 5) % 5;
-        System.out.println("Computer: " + numberToName(computerMove) + " " + name + ": " + numberToName(userMove));
+        System.out.println("Computer: " + numberToName(computerMove) + " " + USER_NAME + ": " + numberToName(userMove));
         if (result == 0) {
             ties++;
             System.out.println("It's a tie!");
