@@ -7,14 +7,15 @@ public class GameRPS extends GameAbstract {
 
     public static final String DESCRIPTION_RPS = "It's simple. Rock breaks scissors, " +
             "scissors cuts paper, paper covers rock.";
+    public static final String INSTRUCTION = "[1] Scissors, [2] Paper, [3] Rock [n] New Game, [x] Exit Game";
 
     public GameRPS(String name, int rounds) {
         super(name, rounds);
     }
 
-    public String getInstruction() {
-         return "[1] Scissors, [2] Paper, [3] Rock [n] New Game, [x] Exit Game";
-    }
+//    public String getInstruction() {
+//         return "[1] Scissors, [2] Paper, [3] Rock [n] New Game, [x] Exit Game";
+//    }
 
     void userMove(String s) {
         switch (s) {

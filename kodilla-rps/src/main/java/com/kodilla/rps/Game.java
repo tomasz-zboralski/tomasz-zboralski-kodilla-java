@@ -1,11 +1,12 @@
 package com.kodilla.rps;
 
 interface Game {
+    String INSTRUCTION = GameAbstract.INSTRUCTION;
 
     int getWins();
     int getLosses();
     int getTies();
-    String getInstruction();
+    //String getInstruction();
     String numberToName(int i);
     boolean isEnd();
 

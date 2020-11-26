@@ -12,13 +12,16 @@ public class GameRPSLS extends GameAbstract{
             "Paper disproves Spock. Spock vaporizes rock.\n" +
             "And as it always has, rock crushes scissors.\n";
 
+    public static final String INSTRUCTION = "[1] Rock, [2] Spock, [3] Paper, [4] Lizard, [5] Scissors, " +
+            "[n] New Game, [x] Exit Game";
+
     public GameRPSLS(String name, int rounds) {
         super(name, rounds);
     }
 
-    public String getInstruction() {
-        return "[1] Rock, [2] Spock, [3] Paper, [4] Lizard, [5] Scissors, [n] New Game, [x] Exit Game";
-    }
+//    public String getInstruction() {
+//        return "[1] Rock, [2] Spock, [3] Paper, [4] Lizard, [5] Scissors, [n] New Game, [x] Exit Game";
+//    }
 
     void userMove(String s) {
         int computerMove = random.nextInt(5);
