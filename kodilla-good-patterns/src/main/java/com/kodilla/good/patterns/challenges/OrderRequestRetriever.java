@@ -12,6 +12,4 @@ public class OrderRequestRetriever {
 
         return new OrderRequest(user, book, orderDate);
     }
-
-
 }
