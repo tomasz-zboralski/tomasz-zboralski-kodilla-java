@@ -4,21 +4,21 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class FlightSearch {
-    ArrayList<Flight> flights = new ArrayList<>();
+    private final ArrayList<Flight> FLIGHTS = new ArrayList<>();
 
     public FlightSearch() {
-        this.flights.add(new Flight("Warszawa", "Kraków"));
-        this.flights.add(new Flight("Warszawa", "Wrocław"));
-        this.flights.add(new Flight("Warszawa", "Gdańsk"));
-        this.flights.add(new Flight("Kraków", "Gdańsk"));
-        this.flights.add(new Flight("Kraków", "Warszawa"));
+        this.FLIGHTS.add(new Flight("Warszawa", "Kraków"));
+        this.FLIGHTS.add(new Flight("Warszawa", "Wrocław"));
+        this.FLIGHTS.add(new Flight("Warszawa", "Gdańsk"));
+        this.FLIGHTS.add(new Flight("Kraków", "Gdańsk"));
+        this.FLIGHTS.add(new Flight("Kraków", "Warszawa"));
     }
 
     public void checkIfFlightExist(Flight flight) {
         String departure = flight.getDEPARTURE();
         String arrival = flight.getARRIVAL();
 
-        boolean directFlightIsFound = flights.contains(flight);
+        boolean directFlightIsFound = FLIGHTS.contains(flight);
 
         if (directFlightIsFound) {
             System.out.println("Direct flight: \n" + flight);
@@ -52,14 +52,14 @@ public class FlightSearch {
 
     public ArrayList<Flight> getFlightsFromCity(String city) {
 
-        return flights.stream()
+        return FLIGHTS.stream()
                 .filter(f -> f.getDEPARTURE().equals(city))
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
     public ArrayList<Flight> getFlightsToCity(String city) {
 
-        return flights.stream()
+        return FLIGHTS.stream()
                 .filter(f -> f.getARRIVAL().equals(city))
                 .collect(Collectors.toCollection(ArrayList::new));
     }
