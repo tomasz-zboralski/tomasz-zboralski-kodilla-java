@@ -3,10 +3,10 @@ package com.kodilla.good.patterns.tinyAirlines;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
-public class FlightDatabase {
+public class FlightSearch {
     ArrayList<Flight> flights = new ArrayList<>();
 
-    public FlightDatabase() {
+    public FlightSearch() {
         this.flights.add(new Flight("Warszawa", "Kraków"));
         this.flights.add(new Flight("Warszawa", "Wrocław"));
         this.flights.add(new Flight("Warszawa", "Gdańsk"));
@@ -15,6 +15,9 @@ public class FlightDatabase {
     }
 
     public void checkIfFlightExist(Flight flight) {
+        String departure = flight.getDEPARTURE();
+        String arrival = flight.getARRIVAL();
+
         boolean directFlightIsFound = flights.contains(flight);
 
         if (directFlightIsFound) {
@@ -22,9 +25,6 @@ public class FlightDatabase {
         } else {
             System.out.println("Direct flight not found");
         }
-
-        String departure = flight.getDEPARTURE();
-        String arrival = flight.getARRIVAL();
 
         ArrayList<Flight> departureFlights = getFlightsFromCity(departure);
         ArrayList<Flight> arrivalFlights = getFlightsToCity(arrival);
@@ -41,9 +41,9 @@ public class FlightDatabase {
 
 
         if (indirectFLightsFrom.isEmpty() && indirectFLightsTo.isEmpty()){
-            System.out.println("Indirect flights not found");
+            System.out.println("\nIndirect flights not found");
         } else {
-            System.out.println("Indirect flights: ");
+            System.out.println("\nIndirect flights: ");
             indirectFLightsFrom.forEach(System.out::println);
             indirectFLightsTo.forEach(System.out::println);
         }
@@ -59,11 +59,8 @@ public class FlightDatabase {
 
     public ArrayList<Flight> getFlightsToCity(String city) {
 
-        ArrayList<Flight> foundFlights = flights.stream()
+        return flights.stream()
                 .filter(f -> f.getARRIVAL().equals(city))
                 .collect(Collectors.toCollection(ArrayList::new));
-
-        return foundFlights;
-
     }
 }
