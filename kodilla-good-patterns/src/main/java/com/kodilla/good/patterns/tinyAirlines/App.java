@@ -8,12 +8,16 @@ public class App {
         Flight myFlight = new Flight(departure, arrival);
         FlightSearch flightSearch = new FlightSearch();
 
-        flightSearch.checkIfFlightExist(myFlight);
+        String directFlight = flightSearch.checkIfFlightExist(myFlight);
+        System.out.println(directFlight);
 
-        System.out.println("\nFlights from " + departure);
+        String indirectFlight = flightSearch.checkIfIndirectFlightExist(myFlight);
+        System.out.println(indirectFlight);
+
+        System.out.println("\nFlights from " + departure + ":");
         flightSearch.getFlightsFromCity(departure).forEach(System.out::println);
 
-        System.out.println("\nFlights to " + arrival);
+        System.out.println("\nFlights to " + arrival + ":");
         flightSearch.getFlightsToCity(arrival).forEach(System.out::println);
     }
 }

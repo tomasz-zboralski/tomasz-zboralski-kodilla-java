@@ -1,25 +1,25 @@
 package com.kodilla.good.patterns.tinyAirlines;
 
 public class Flight {
-    private final String DEPARTURE;
-    private final String ARRIVAL;
+    private final String departure;
+    private final String arrival;
 
-    public Flight(String DEPARTURE, String ARRIVAL) {
-        this.DEPARTURE = DEPARTURE;
-        this.ARRIVAL = ARRIVAL;
+    public Flight(String departure, String arrival) {
+        this.departure = departure;
+        this.arrival = arrival;
     }
 
-    public String getDEPARTURE() {
-        return DEPARTURE;
+    public String getDeparture() {
+        return departure;
     }
 
-    public String getARRIVAL() {
-        return ARRIVAL;
+    public String getArrival() {
+        return arrival;
     }
 
     @Override
     public String toString() {
-        return "Flight from: " + DEPARTURE + " to: " + ARRIVAL;
+        return "Flight from: " + departure + " to: " + arrival;
     }
 
     @Override
@@ -29,14 +29,14 @@ public class Flight {
 
         Flight flight = (Flight) o;
 
-        if (DEPARTURE != null ? !DEPARTURE.equals(flight.DEPARTURE) : flight.DEPARTURE != null) return false;
-        return ARRIVAL != null ? ARRIVAL.equals(flight.ARRIVAL) : flight.ARRIVAL == null;
+        if (departure != null ? !departure.equals(flight.departure) : flight.departure != null) return false;
+        return arrival != null ? arrival.equals(flight.arrival) : flight.arrival == null;
     }
 
     @Override
     public int hashCode() {
-        int result = DEPARTURE != null ? DEPARTURE.hashCode() : 0;
-        result = 31 * result + (ARRIVAL != null ? ARRIVAL.hashCode() : 0);
+        int result = departure != null ? departure.hashCode() : 0;
+        result = 31 * result + (arrival != null ? arrival.hashCode() : 0);
         return result;
     }
 }
