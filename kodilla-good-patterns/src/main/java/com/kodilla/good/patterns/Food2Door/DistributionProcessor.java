@@ -4,7 +4,7 @@ import java.util.Map;
 
 public class DistributionProcessor {
 
-    OrderService orderService;
+    private final OrderService orderService;
 
     public DistributionProcessor(OrderService orderService) {
         this.orderService = orderService;
