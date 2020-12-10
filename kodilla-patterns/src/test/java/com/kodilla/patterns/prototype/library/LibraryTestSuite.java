@@ -29,10 +29,9 @@ public class LibraryTestSuite {
         //When
         library.getBooks().add(new Book("Extra Book", "The Author", LocalDate.now()));
 
+        //Then
         int libraryBooks = library.getBooks().size();
         int deepClonedLibraryBooks = deepClonedLibrary.getBooks().size();
-
-        //Then
         Assertions.assertEquals(11, libraryBooks);
         Assertions.assertEquals(10, deepClonedLibraryBooks);
     }
