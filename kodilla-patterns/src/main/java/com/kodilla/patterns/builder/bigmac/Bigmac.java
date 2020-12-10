@@ -8,7 +8,7 @@ public class Bigmac {
     private final String bun;
     private final int burgers;
     private final String sauce;
-    private List<String> ingredients = new ArrayList<>();
+    private final List<String> ingredients;
 
     private Bigmac(String bun, int burgers, String sauce, List<String> ingredients) {
         this.bun = bun;
@@ -20,13 +20,9 @@ public class Bigmac {
     public static class BigmacBuilder {
         public static final String SESAME_BUN = "SESAME_BUN";
         public static final String STANDARD_BUN = "STANDARD_BUN";
-        private ArrayList<String> sauceList = new ArrayList<String>(
-                Arrays.asList("standard",
-                        "1000 islands",
-                        "barbecue"));
-        private ArrayList<String> ingredientsList = new ArrayList<String>(
-                Arrays.asList("lettuce", "onion", "bacon", "cucumber",
-                        "chilli peppers", "mushrooms", "prawns", "cheese"));
+        private final List<String> sauceList = Arrays.asList("standard", "1000 islands", "barbecue");
+        private final List<String> ingredientsList = Arrays.asList("lettuce", "onion", "bacon", "cucumber",
+                        "chilli peppers", "mushrooms", "prawns", "cheese");
 
 
         private String bun;
