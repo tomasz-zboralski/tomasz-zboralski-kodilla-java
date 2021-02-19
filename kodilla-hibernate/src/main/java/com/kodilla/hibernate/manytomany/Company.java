@@ -11,6 +11,13 @@ import java.util.List;
         query = "SELECT * FROM COMPANIES WHERE LEFT(COMPANY_NAME, 3) = :THREELETTERS",
         resultClass = Company.class
 )
+@NamedQueries({
+        @NamedQuery(
+                name = "Company.retrieveCompaniesByNameFragment",
+                query = "FROM Company WHERE name LIKE '%' || :NAMEFRAGMENT ||'%' "
+        )
+})
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
