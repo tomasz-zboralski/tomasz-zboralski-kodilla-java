@@ -17,7 +17,6 @@ import java.util.List;
                 query = "FROM Company WHERE name LIKE '%' || :NAMEFRAGMENT ||'%' "
         )
 })
-
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
