@@ -47,6 +47,7 @@ public class HomeworkQueueTestSuite {
         studentAHomeworkQueue.addHomework("Homework1");
         studentAHomeworkQueue.addHomework("Homework2");
         studentAHomeworkQueue.addHomework("Homework3");
+        studentAHomeworkQueue.addHomework("Homework4");
 
         //When
         studentAHomeworkQueue.getHomeworks().poll();
@@ -55,6 +56,6 @@ public class HomeworkQueueTestSuite {
 
         //Then
         assertEquals("Homework2", homework2);
-        assertEquals(2, homeworks);
+        assertEquals(3, homeworks);
     }
 }

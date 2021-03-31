@@ -13,7 +13,7 @@ public class Mentor implements Observer {
         int homeworkNumber = homeworkQueue.getHomeworks().size();
         System.out.println(
                 "Hello " + name + " you've got " + homeworkNumber +
-                        " homework" + (homeworkNumber==1 ? " ":"s ") + "to check from " + homeworkQueue.getName() +
+                        " homework" + (homeworkNumber == 1 ? " ":"s ") + "to check from " + homeworkQueue.getName() +
                         ", total [" + homeworkCount + "]"
         );
     }
